@@ -27,4 +27,8 @@ Route::resource('quanly-donvi','App\Http\Controllers\DonviController');
 //  Route::get('quanly-donvi-update/{id}','App\Http\Controllers\DonviController@edit')->name('update');
 //  Route::post('quanly-donvi-update','App\Http\Controllers\DonviController@update')->name('post-update');
 //  Route::get('quanly-donvi-detele/{id}','App\Http\Controllers\DonviController@destroy')->name('delete');
-Route::resource('quanly-nguoidung','App\Http\Controllers\CustomerController');
+Route::resource('quanly-nguoidung','App\Http\Controllers\CustomerController')->middleware('auth:sanctum');
+
+Route::post('/auth/register','App\Http\Controllers\AuthController@createUser');
+
+Route::post('/auth/login','App\Http\Controllers\AuthController@loginUser');
