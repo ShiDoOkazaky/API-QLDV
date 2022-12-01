@@ -81,6 +81,7 @@ class CustomerController extends Controller
         ]);
         if($validator->fails()){
         return response()->json([
+            'success' => false,
             'massage' => $validator->errors()
         ]) ;       
         }
@@ -110,6 +111,7 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         if (is_null($customer)) {
         return response()->json([
+            'success' => false,
             'message' => 'Không tìm thấy người dùng'
         ]);
         }
@@ -163,6 +165,7 @@ class CustomerController extends Controller
         ]);
         if($validator->fails()){
             return response()->json([
+                'success' => false,
                 'massage' => $validator->errors()
             ]) ;       
             }
